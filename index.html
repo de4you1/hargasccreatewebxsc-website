@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE4YOU BOT 2.2.0 - Powerful Script Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --danger: #d63031;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.5);
+            background-color: #5a4bd1;
+        }
+        
+        .features {
+            padding: 4rem 0;
+            background-color: white;
+            border-radius: 20px;
+            margin-top: -30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: var(--dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .pricing {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .price-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+            margin: 0 auto;
+            border: 2px solid var(--secondary);
+        }
+        
+        .price-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .price-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: var(--dark);
+        }
+        
+        .price-card .price span {
+            font-size: 1.5rem;
+            color: #666;
+        }
+        
+        .menu {
+            padding: 4rem 0;
+            background-color: var(--light);
+        }
+        
+        .menu-section {
+            margin-bottom: 3rem;
+        }
+        
+        .menu-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            padding-left: 15px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .menu-items {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .menu-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item .command {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        
+        .contact {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 4rem;
+        }
+        
+        .contact a {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">DE4YOU BOT</div>
+            <div class="tagline">Powerful Script Tools v2.2.0</div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Ubah Dirimu Menjadi Developer Instan!</h1>
+            <p>Dengan script DE4YOU BOT 2.2.0, Anda bisa memiliki kemampuan developer dadakan dengan fitur-fitur powerful yang siap pakai.</p>
+            <a href="#contact" class="cta-button">Beli Sekarang</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Keuntungan Menggunakan DE4YOU BOT</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Developer Dadakan</h3>
+                    <p>Tanpa perlu belajar coding bertahun-tahun, langsung bisa menjadi developer dengan berbagai fitur siap pakai.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reseller Script</h3>
+                    <p>Buka bisnis reseller script dengan mudah dan dapatkan keuntungan besar dari penjualan script.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Buat Script Tanpa Enc</h3>
+                    <p>Buat script sendiri tanpa enkripsi, full akses ke semua kode sumber untuk modifikasi sesuai kebutuhan.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Balmod Parah</h3>
+                    <p>Fitur balmod yang powerful untuk berbagai kebutuhan dengan hasil maksimal.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Semua Fitur Work</h3>
+                    <p>Tidak ada fitur yang setengah-setengah, semua sudah diuji dan bekerja dengan sempurna.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Auto Jadi Developer</h3>
+                    <p>Dengan satu script ini, Anda langsung memiliki semua kemampuan yang dibutuhkan seorang developer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Harga Script</h2>
+            <div class="price-card">
+                <h2>DE4YOU BOT 2.2.0</h2>
+                <div class="price">Rp 70.000 <span>/ sekali bayar</span></div>
+                <p>Dapatkan semua fitur premium dengan harga terjangkau. Update gratis untuk versi minor berikutnya.</p>
+                <a href="#contact" class="cta-button">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Script</h2>
+            
+            <div class="menu-section">
+                <h3>Seller Management</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="command">.addsellersc</span>
+                        <span>Menambahkan seller script</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.addsellerweb</span>
+                        <span>Menambahkan seller web</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.dellersc</span>
+                        <span>Menghapus seller script</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.dellerweb</span>
+                        <span>Menghapus seller web</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.listsellersc</span>
+                        <span>Daftar seller script</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.listsellerweb</span>
+                        <span>Daftar seller web</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>Script Creation</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="command">.createsc</span>
+                        <span>Membuat script baru</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.addfitur</span>
+                        <span>Menambahkan fitur ke script</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.delfitur</span>
+                        <span>Menghapus fitur dari script</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.listfitur</span>
+                        <span>Daftar fitur dalam script</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.getcasesc</span>
+                        <span>Mendapatkan case script</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>Web Management</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="command">.scweb</span>
+                        <span>Script web</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.createweb</span>
+                        <span>Membuat web</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.createweb2</span>
+                        <span>Membuat web versi 2</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.createweb3</span>
+                        <span>Membuat web versi 3</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.listweb</span>
+                        <span>Daftar web</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.delweb</span>
+                        <span>Menghapus web</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <h3>Repository Management</h3>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <span class="command">.addrepo</span>
+                        <span>Menambahkan repository</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.delrepo</span>
+                        <span>Menghapus repository</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.listrepo</span>
+                        <span>Daftar repository</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="command">.checkrepo</span>
+                        <span>Memeriksa repository</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Minat dengan Script Kami?</h2>
+            <p>Hubungi kami sekarang via WhatsApp untuk informasi lebih lanjut dan pembelian.</p>
+            <a href="https://wa.me/6287778002663" target="_blank">Hubungi via WhatsApp</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DE4YOU BOT. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
